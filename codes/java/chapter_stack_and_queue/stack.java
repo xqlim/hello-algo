@@ -18,7 +18,7 @@ public class stack {
         stack.push(3);
         stack.push(2);
         stack.push(5);
-        stack.push(4);
+        stack.push(3);
         System.out.println("栈 stack = " + stack);
 
         /* 访问栈顶元素 */

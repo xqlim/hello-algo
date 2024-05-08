@@ -8,6 +8,10 @@ package chapter_array_and_linkedlist;
 
 import utils.*;
 
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+
 public class linked_list {
     /* 在链表的节点 n0 之后插入节点 P */
     static void insert(ListNode n0, ListNode P) {
@@ -50,6 +54,14 @@ public class linked_list {
 
     /* Driver Code */
     public static void main(String[] args) {
+
+        LinkedList<String> list = new LinkedList<>();
+        list.add("ddd");
+
+
+        ArrayList<String> list1 = new ArrayList<>();
+        list1.add("ddd");
+
         /* 初始化链表 */
         // 初始化各个节点
         ListNode n0 = new ListNode(1);
@@ -66,12 +78,12 @@ public class linked_list {
         PrintUtil.printLinkedList(n0);
 
         /* 插入节点 */
-        insert(n0, new ListNode(0));
+        insert(n1, new ListNode(0));
         System.out.println("插入节点后的链表为");
         PrintUtil.printLinkedList(n0);
 
         /* 删除节点 */
-        remove(n0);
+        remove(n1);
         System.out.println("删除节点后的链表为");
         PrintUtil.printLinkedList(n0);
 
@@ -82,5 +94,21 @@ public class linked_list {
         /* 查找节点 */
         int index = find(n0, 2);
         System.out.println("链表中值为 2 的节点的索引 = " + index);
+
+        ListNode listNode = deleteNode(n0, 2);
+
+
+    }
+
+
+    public static ListNode deleteNode(ListNode head, int val) {
+        if(head.val == val) return head.next;
+        ListNode pre = head, cur = head.next;
+        while(cur != null && cur.val != val) {
+            pre = cur;
+            cur = cur.next;
+        }
+        if(cur != null) pre.next = cur.next;
+        return head;
     }
 }
